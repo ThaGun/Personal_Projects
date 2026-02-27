@@ -1,7 +1,6 @@
 from QD_quad_model import quad_model_symbolic, discrete_dynamic
 from QD_control_theory import linerization
 from QD_lqr_sim import LQR_sim
-from QD_mpc_sim import MPC_sim
 import numpy as np
 import casadi as ca
 import matplotlib.pyplot as plt
@@ -58,10 +57,6 @@ print("Sim Start!!")
 
 ''' LQR control '''
 x_h, u_h, x_error, x_refer = LQR_sim(A, B, F, x0, N, dt, u_hover, R_c, omega)
-
-''' MPC Control '''
-#x_his, u_his = MPC.MPC_opt(N_mpc, F, par["m"], par["g"], R_c, omega, dt, x0)
-#x_h2, u_h2, x_ref_p = MPC_sim.simulation(x0, x_ref, u_min, u_max, F, N, par["m"], par["g"], N_mpc, dt, u_prev)
 
 print("Done!!")
 
