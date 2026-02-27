@@ -3,6 +3,7 @@
 ## Techologies💻:
 1. Python
 2. NumPy
+3. PID controller
 
 ## Objective🎯:
 1. To model the dynamics of two interconnected tanks for water filling with inlet valves and outlet valves.
