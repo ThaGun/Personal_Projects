@@ -1,13 +1,13 @@
-# Double DQN for Cartpole balancing
+# Double DQN for Cartpole balancing 
 
 This repository contains an implementation of the Double DQN algorithm for solving the Cartpole balancing problem. The code is written in Python and uses the PyTorch library for deep learning.
 
 <video controls src="Cartpole.mp4" title="Title"></video>
 
-## Introduction
+## Introduction 👣
 The Cartpole problem is a classic reinforcement learning task where the goal is to balance a pole on a cart by applying forces to the cart. The agent receives a reward for keeping the pole balanced and is penalized for letting it fall. The Double DQN algorithm is an improvement over the traditional DQN algorithm, which helps to reduce overestimation bias in action value estimates.
 
-## Implementation
+## Implementation 🪜
 The implementation consists of the following components:
 - CP_policy.py: Contains the implementation of the DQN policy.
 - CP_memory.py: Contains the implementation of the replay buffer for storing experience tuples.
@@ -49,5 +49,5 @@ The Adam optimizer is used for updating the neural network weights. It is an ada
 ## Mean reward and Epsilon decay
 ![alt text](graph.png)
 
-## Conclusion
+## Conclusion ⌚
 The Double DQN algorithm provides a more stable and accurate approach to solving the Cartpole balancing problem compared to the traditional DQN algorithm. By decoupling action selection and evaluation, it helps to reduce overestimation bias and improve the performance of the agent. The implementation in this repository demonstrates how to apply Double DQN to the Cartpole problem using PyTorch.
