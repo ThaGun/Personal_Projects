@@ -45,6 +45,9 @@ Low values   →  dark purple valleys
 Global min   →  deepest purple point at (0, 0)
 ```
 
+<img width="1536" height="754" alt="RF_3d" src="https://github.com/user-attachments/assets/b44fffda-eabf-4150-8eda-cfe68087d406" />
+
+
 ---
 
 ## 🔗 Constraint
@@ -68,6 +71,8 @@ The penalty term $(x - y)^2 = 0$ only when $x = y$, which steers all algorithms 
 > - Too low → constraint is ignored
 > - Too high → objective is ignored, algorithm only satisfies constraint
 
+<img width="640" height="480" alt="RF_ct" src="https://github.com/user-attachments/assets/cf3511e2-37c3-4441-9411-510f265ada45" />
+
 ---
 
 ## ⚙️ Algorithms Implemented
@@ -86,6 +91,8 @@ repeat N times:
 **Role here:** Serves as a performance baseline. Shows how much structure and memory actually matter in the other methods.
 
 **Weakness:** Does not scale — performance degrades quickly in higher dimensions.
+
+<img width="640" height="480" alt="RS_ct" src="https://github.com/user-attachments/assets/1035270c-7cec-4ce0-99f2-1b050edf6ef3" />
 
 ---
 
@@ -115,7 +122,7 @@ A fixed learning rate $\alpha$ causes two problems:
 
 Adaptive learning rate methods adjust $\alpha$ automatically at each step based on the history of gradients.
 
-**① Decay Schedule** — shrink $\alpha$ over time regardless of gradient:
+**Decay Schedule** — shrink $\alpha$ over time regardless of gradient:
 $$\alpha_t = \frac{\alpha_0}{1 + \text{decay} \times t}$$
 
 ```python
@@ -125,9 +132,9 @@ def decayed_lr(alpha_0, decay, t):
 
 > Simple and predictable. Good when you know roughly how many iterations you need.
 
+<img width="640" height="480" alt="GD_ct" src="https://github.com/user-attachments/assets/33f8c3ad-da5b-4c79-b00c-d8664965e434" />
+
 ---
-
-
 
 ### 3. Simulated Annealing
 
@@ -140,7 +147,7 @@ $$P(\text{accept}) = e^{-\Delta f / T}$$
 - Low $T$ → rarely accepts bad moves → fine-tuning
 
 **Cooling schedule:**
-$$T_{t+1} = T_t \times \text{cooling\_rate}$$
+$$T_{t+1} = T_t \times \rho$$
 
 **Key parameters:**
 
@@ -154,6 +161,7 @@ $$T_{t+1} = T_t \times \text{cooling\_rate}$$
 ```python
 step_size = max(2.0 * (T / T_start), 0.01)
 ```
+<img width="640" height="480" alt="SA_ct" src="https://github.com/user-attachments/assets/b3b26191-3aee-41f3-a4ea-d41195a51087" />
 
 ---
 
@@ -182,6 +190,8 @@ $$\text{child} \in [\min(g_1, g_2) - \alpha d,\ \max(g_1, g_2) + \alpha d]$$
 | `crossover_rate` | Probability of crossover | `0.6–0.9` |
 | `mutation_rate` | Probability of mutation per gene | `0.05–0.2` |
 | `elite_count` | Number of elites preserved | `1–5` |
+
+<img width="640" height="480" alt="GA_ct" src="https://github.com/user-attachments/assets/f453e24b-d963-431f-bbb3-0e6c5addbb97" />
 
 ---
 
@@ -216,6 +226,8 @@ Reproduction: best half survive and clone themselves
 | `n_swim` | Max swim steps per tumble | `5–15` |
 | `elim_prob` | Elimination probability | `0.1–0.3` |
 
+<img width="640" height="480" alt="CT_ct" src="https://github.com/user-attachments/assets/9d99de9b-0b83-489c-8d25-4a330b120891" />
+
 ---
 
 ### 6. Particle Swarm Optimization
@@ -243,6 +255,8 @@ $$x_{t+1} = x_t + v_{t+1}$$
 | `c2` | Social weight | `1.5–2.5` |
 | `v_max` | Max velocity clamp | `0.2–1.0` |
 
+<img width="640" height="480" alt="PS_ct" src="https://github.com/user-attachments/assets/8a00e059-b2ee-4cae-a603-6ae0b5453749" />
+
 ---
 
 ## 📊 Results & Comparison
@@ -252,7 +266,7 @@ $$x_{t+1} = x_t + v_{t+1}$$
 | Random Search | Rarely | Slow | High | Weak |
 | Gradient Descent | Sometimes | Fast | None | Moderate |
 | Simulated Annealing | Often | Moderate | Low | Good |
-| Genetic Algorithm | Often | Moderate | High | Good |
+| Genetic Algorithm | Most reliable | Fast | High | Good |
 | Bacterial Foraging | Often | Moderate | Medium | Good |
 | PSO | Most reliably | **Fastest** | Medium | Good |
 
